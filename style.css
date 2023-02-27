@@ -1,0 +1,122 @@
+ #game-board {
+    width: 400px;
+    height: 430px;
+    border: 1px solid black;
+    position: relative;
+    margin: auto;
+    background-color: black;
+}
+
+/* #reset-button {
+    font-size: 1rem;
+    padding: 5px 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100px;
+    margin: auto;
+  } */
+
+.row {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    display: flex;
+}
+
+.column {
+    height: 30px;
+    width: 16vw;
+}
+
+/* Will have cars going LEFT */
+.row:nth-child(1) {
+    top: 50px;
+    height: 30px;
+    width: 400px;
+    background-color: white;
+}
+/* Will have cars going RIGHT */
+.row:nth-child(2) {
+    top: 110px;
+    height: 30px;
+    width: 400px;
+    background-color: white;
+}
+/* Will have cars going LEFT */
+.row:nth-child(3) {
+    top: 170px;
+    height: 30px;
+    width: 400px;
+    background-color: white;
+}
+/* Will have cars going RIGHT */
+.row:nth-child(4) {
+    top: 230px;
+    height: 30px;
+    width: 400px;
+    background-color: white;
+}
+/* Will have cars going LEFT */
+.row:nth-child(5) {
+    top: 290px;
+    height: 30px;
+    width: 400px;
+    background-color: white;
+}
+/* Will have cars going RIGHT */
+.row:nth-child(6) {
+    top: 350px;
+    height: 30px;
+    width: 400px;
+    background-color: white;
+}
+
+.frog {
+    width: 20px;
+    height: 20px;
+    background-color: green;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+#scoreboard {
+    text-align: center;
+    font: bold;
+}
+
+.car {
+    width: 40px;
+    height: 30px;
+    position: absolute;
+}
+
+.car--1 {
+    background-color: yellow;
+}
+
+.car--2 {
+    background-color: blue;
+}
+
+.car--3 {
+    background-color: red;
+}
+
+.car--4 {
+    background-color: pink;
+}
+.car--5 {
+    background-color: orange;
+}
+.car--6 {
+    background-color: purple;
+}
+
