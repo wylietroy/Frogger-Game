@@ -4,6 +4,7 @@
   "description": "PROJECT-1 **SEI=2060 Project 1**",
   "main": "script.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
