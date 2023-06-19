@@ -1,4 +1,5 @@
 // Get the necessary elements from the HTML
+const { JSDOM } = require('jsdom');
 const frog = document.getElementById('frog');
 const gameBoard = document.getElementById('game-board');
 const cars = document.querySelectorAll('.car');
