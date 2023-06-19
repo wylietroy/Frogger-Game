@@ -136,20 +136,6 @@ setInterval(() => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Check for collisions between the frog and the cars
 setInterval(() => {
   checkCollisions();
