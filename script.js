@@ -86,6 +86,8 @@ function moveRight() {
 }
 
 
+// Impossible Portion if wanting to slow down cards change the Math.random to a set amount
+
 let currentIndex1 = 0;
 let currentIndex2 = 0;
 let currentIndex3 = 0;
@@ -93,144 +95,81 @@ let currentIndex4 = 0;
 let currentIndex5 = 0;
 let currentIndex6 = 0;
 
-
-// Check collisions with all cars
-setInterval(() => {
-  colliding = checkCollisionWithCar(currentIndex1)
-  checkCollisionWithCar(currentIndex2)
-  checkCollisionWithCar(currentIndex3)
-  checkCollisionWithCar(currentIndex4)
-  checkCollisionWithCar(currentIndex5)
-  checkCollisionWithCar(currentIndex6)
-
-  if(colliding){
-    console.log("Colliding!")
-  }
-}, 5)
-
-function checkCollisionWithCar(carIndex){
-  frogRect = frog.getBoundingClientRect();
-  frogCenterX = (frogRect.left + frogRect.right) / 2;
-  frogCenterY = (frogRect.top + frogRect.bottom) / 2;
-
-  carColumn = column[carIndex]
-  carRect = carColumn.getBoundingClientRect();
-  carCenterX = (carRect.left + carRect.right) / 2;
-  carCenterY = (carRect.top + carRect.bottom) / 2;
-
-  gapX = carRect.width/2 + frogRect.width/2
-  gapY = carRect.height/2 + frogRect.height/2
-
-  collideX = Math.abs(frogCenterX - carCenterX) < gapX
-  collideY = Math.abs(frogCenterY - carCenterY) < gapY
-
-  return collideX && collideY
-}
-
-
+let intervalUpdate = 20
 
 setInterval(() => {
   column[currentIndex1].classList.remove('car--1')
-  currentIndex1++
-  currentIndex1 = (currentIndex1 + 1) % column.length;
+  currentIndex1 = Math.floor(Math.random() * column.length)
   column[currentIndex1].classList.add('car--1')
-},500)
+},intervalUpdate)
 
 setInterval(() => {
   column[currentIndex2].classList.remove('car--2')
-  currentIndex2++
-  currentIndex2 = (currentIndex2 + 1) % column.length;
+  currentIndex2 = Math.floor(Math.random() * column.length)
   column[currentIndex2].classList.add('car--2')
-},700)
+},intervalUpdate)
 
 setInterval(() => {
   column[currentIndex3].classList.remove('car--3')
-  currentIndex3++
-  currentIndex3 = (currentIndex3 + 1) % column.length;
+  currentIndex3 = Math.floor(Math.random() * column.length)
   column[currentIndex3].classList.add('car--3')
-},200)
+},intervalUpdate)
 
 setInterval(() => {
   column[currentIndex4].classList.remove('car--4')
-  currentIndex4++
-  currentIndex4 = (currentIndex4 + 1) % column.length;
+  currentIndex4 = Math.floor(Math.random() * column.length)
   column[currentIndex4].classList.add('car--4')
-},1200)
+},intervalUpdate)
 
 setInterval(() => {
   column[currentIndex5].classList.remove('car--5')
-  currentIndex5++
-  currentIndex5 = (currentIndex5 + 1) % column.length;
+  currentIndex5 = Math.floor(Math.random() * column.length)
   column[currentIndex5].classList.add('car--5')
-},900)
+},intervalUpdate)
 
 setInterval(() => {
   column[currentIndex6].classList.remove('car--6')
-  currentIndex6++
-  currentIndex6 = (currentIndex6 + 1) % column.length;
+  currentIndex6 = Math.floor(Math.random() * column.length)
   column[currentIndex6].classList.add('car--6')
-},250)
-
-console.log(cars);
+},intervalUpdate)
 
 
-// let currentIndex1 = 0;
-// let currentIndex2 = 0;
-// let currentIndex3 = 0;
-// let currentIndex4 = 0;
-// let currentIndex5 = 0;
-// let currentIndex6 = 0;
 
-// let intervalUpdate = 20
 
-// setInterval(() => {
-//   column[currentIndex1].classList.remove('car--1')
-//   currentIndex1 = Math.floor(Math.random() * column.length)
-//   column[currentIndex1].classList.add('car--1')
-// },intervalUpdate)
 
-// setInterval(() => {
-//   column[currentIndex2].classList.remove('car--2')
-//   currentIndex2 = Math.floor(Math.random() * column.length)
-//   column[currentIndex2].classList.add('car--2')
-// },intervalUpdate)
 
-// setInterval(() => {
-//   column[currentIndex3].classList.remove('car--3')
-//   currentIndex3 = Math.floor(Math.random() * column.length)
-//   column[currentIndex3].classList.add('car--3')
-// },intervalUpdate)
 
-// setInterval(() => {
-//   column[currentIndex4].classList.remove('car--4')
-//   currentIndex4 = Math.floor(Math.random() * column.length)
-//   column[currentIndex4].classList.add('car--4')
-// },intervalUpdate)
 
-// setInterval(() => {
-//   column[currentIndex5].classList.remove('car--5')
-//   currentIndex5 = Math.floor(Math.random() * column.length)
-//   column[currentIndex5].classList.add('car--5')
-// },intervalUpdate)
 
-// setInterval(() => {
-//   column[currentIndex6].classList.remove('car--6')
-//   currentIndex6 = Math.floor(Math.random() * column.length)
-//   column[currentIndex6].classList.add('car--6')
-// },intervalUpdate)
+
+
+
+
+
+
 
 
 
 // Check for collisions between the frog and the cars
+setInterval(() => {
+  checkCollisions();
+}, 5);
+
 function checkCollisions() {
-  cars.forEach(car => {
-    if (isColliding(frog, car)) {
-      resetGame();
-    }
-  });
+  checkCollisionWithCar(currentIndex1);
+  checkCollisionWithCar(currentIndex2);
+  checkCollisionWithCar(currentIndex3);
+  checkCollisionWithCar(currentIndex4);
+  checkCollisionWithCar(currentIndex5);
+  checkCollisionWithCar(currentIndex6);
 }
 
-// Check if two elements are colliding
+function checkCollisionWithCar(carIndex) {
+  if (isColliding(frog, column[carIndex])) {
+    resetGame();
+  }
+}
+
 function isColliding(element1, element2) {
   const element1Rect = element1.getBoundingClientRect();
   const element2Rect = element2.getBoundingClientRect();
@@ -242,6 +181,11 @@ function isColliding(element1, element2) {
   );
 }
 
-
-
-
+function resetGame() {
+  // frogX = 190;
+  frogY = 5;
+  score = 0;
+  scoreDisplay.textContent = score;
+  frog.style.left = frogX + 'px';
+  frog.style.bottom = frogY + 'px';
+}
