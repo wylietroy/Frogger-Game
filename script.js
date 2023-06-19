@@ -4,8 +4,22 @@ const gameBoard = document.getElementById('game-board');
 const cars = document.querySelectorAll('.car');
 const scoreDisplay = document.getElementById('score');
 const column = document.querySelectorAll('.column');
-// const resetButton = document.getElementById('reset-button');
-console.log(column);
+
+const express = require('express');
+const app = express();
+
+const port = process.env.PORT || 3000; // Use the provided port by Heroku or default to 3000
+
+app.use(express.static(__dirname));
+
+app.listen(port, "0.0.0.0", () => {
+  console.log(`Server running on port ${port}`);
+});
+
+app.get('/', (req, res) => {
+  res.send('Hello, world!');
+});
+
 
 // Set the starting position for the frog
 let frogX = 190;
