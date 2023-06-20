@@ -6,7 +6,7 @@ const dom = new JSDOM('<!DOCTYPE html><html><body></body></html>');
 // Access the document object from the JSDOM instance
 const document = dom.window.document;
 
-const frog = document.getElementById('.frog');
+const frog = document.getElementById('frog');
 const gameBoard = document.getElementById('game-board');
 const cars = document.querySelectorAll('.car');
 const scoreDisplay = document.getElementById('score');
